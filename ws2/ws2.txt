@@ -1,0 +1,13 @@
+
+# 2) The home directory is /home/evanf. To find it I used echo $HOME.
+
+# 3) My UID is 1001. To find it I used echo $UID.
+
+# 4) The folder that contains memory information is /meminfo and the folder for cpu information is /cpuinfo.
+
+# 5) My server contains roughly 1 million kb of memory.
+
+# 6) My server's cpu is an intel xeon clocking around 2.2 ghz.
+
+# 7) My OS version is 20.04.6 LTS and is contained in the file called os-release.
+

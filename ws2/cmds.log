@@ -1,0 +1,23 @@
+
+   55  cd cs131
+   56  ls
+   57  mkdir ws2
+   58  ls
+   65  cd ws2
+   71  echo $HOME
+   72  echo $UID
+   78  ls
+   79  cd proc
+   80  ls
+   81  head meminfo
+   82  head cpuinfo
+   83  tail cpuinfo
+   84  cat cpuinfo
+   88  cd etc
+   89  ls
+   91  head os-release
+   93  cd
+   94  cd cs131/ws2
+   95  > ws2.txt
+   99  vim ws2.txt
+  100  history > cmds.log
