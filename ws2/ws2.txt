@@ -1,13 +1,173 @@
+Script started on 2025-02-03 22:28:55+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="103" LINES="54"]
+]0;evanf@instance-20250127-192505: ~/cs131/ws2[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws2[00m$ echo $ho[K[KHOME
+/home/evanf   ## THIS IS THE HOME DIRECTORY
+]0;evanf@instance-20250127-192505: ~/cs131/ws2[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws2[00m$ echo $UID
+1001  ## THIS IS THE UID
+]0;evanf@instance-20250127-192505: ~/cs131/ws2[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws2[00m$ cd /proc/
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ ls  ## IN /proc/ THE FILES meminfo AND cpuinfo CONTAIN INFORMATION ABOUT THE MEMORY AND CPU
+[0m[01;34m1[0m    [01;34m130[0m   [01;34m26[0m     [01;34m445[0m    [01;34m76064[0m  [01;34m81[0m   [01;34m99[0m             filesystems  meminfo       sysrq-trigger
+[01;34m10[0m   [01;34m1331[0m  [01;34m27[0m     [01;34m449[0m    [01;34m76172[0m  [01;34m82[0m   [01;34macpi[0m           [01;34mfs[0m           misc          [01;34msysvipc[0m
+[01;34m100[0m  [01;34m1332[0m  [01;34m29[0m     [01;34m5[0m      [01;34m76177[0m  [01;34m820[0m  bootconfig     interrupts   modules       [01;36mthread-self[0m
+[01;34m101[0m  [01;34m14[0m    [01;34m3[0m      [01;34m557[0m    [01;34m76200[0m  [01;34m823[0m  buddyinfo      iomem        [01;36mmounts[0m        timer_list
+[01;34m102[0m  [01;34m15[0m    [01;34m30[0m     [01;34m568[0m    [01;34m76203[0m  [01;34m83[0m   [01;34mbus[0m            ioports      mtrr          [01;34mtty[0m
+[01;34m104[0m  [01;34m16[0m    [01;34m31[0m     [01;34m584[0m    [01;34m76204[0m  [01;34m84[0m   cgroups        [01;34mirq[0m          [01;36mnet[0m           uptime
+[01;34m106[0m  [01;34m168[0m   [01;34m32[0m     [01;34m593[0m    [01;34m76207[0m  [01;34m85[0m   cmdline        kallsyms     pagetypeinfo  version
+[01;34m107[0m  [01;34m18[0m    [01;34m320[0m    [01;34m6[0m      [01;34m76304[0m  [01;34m86[0m   consoles       kcore        partitions    version_signature
+[01;34m11[0m   [01;34m19[0m    [01;34m321[0m    [01;34m601[0m    [01;34m76305[0m  [01;34m87[0m   cpuinfo        key-users    [01;34mpressure[0m      vmallocinfo
+[01;34m116[0m  [01;34m2[0m     [01;34m322[0m    [01;34m610[0m    [01;34m76333[0m  [01;34m88[0m   crypto         keys         schedstat     vmstat
+[01;34m119[0m  [01;34m20[0m    [01;34m323[0m    [01;34m619[0m    [01;34m76370[0m  [01;34m90[0m   devices        kmsg         [01;34mscsi[0m          zoneinfo
+[01;34m12[0m   [01;34m206[0m   [01;34m324[0m    [01;34m654[0m    [01;34m76380[0m  [01;34m92[0m   diskstats      kpagecgroup  [01;36mself[0m
+[01;34m120[0m  [01;34m21[0m    [01;34m32628[0m  [01;34m656[0m    [01;34m76381[0m  [01;34m93[0m   dma            kpagecount   slabinfo
+[01;34m127[0m  [01;34m22[0m    [01;34m32629[0m  [01;34m666[0m    [01;34m76392[0m  [01;34m95[0m   [01;34mdriver[0m         kpageflags   softirqs
+[01;34m128[0m  [01;34m223[0m   [01;34m33[0m     [01;34m675[0m    [01;34m8[0m      [01;34m96[0m   [01;34mdynamic_debug[0m  loadavg      stat
+[01;34m129[0m  [01;34m24[0m    [01;34m34[0m     [01;34m720[0m    [01;34m80[0m     [01;34m97[0m   execdomains    locks        swaps
+[01;34m13[0m   [01;34m25[0m    [01;34m4[0m      [01;34m75704[0m  [01;34m803[0m    [01;34m98[0m   fb             mdstat       [01;34msys[0m
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ head meminfo  ## TOTAL MEMORY IS 976904 KB
+MemTotal:         976904 kB
+MemFree:          425000 kB
+MemAvailable:     635588 kB
+Buffers:           34880 kB
+Cached:           294012 kB
+SwapCached:            0 kB
+Active:           223148 kB
+Inactive:         169856 kB
+Active(anon):        896 kB
+Inactive(anon):    72388 kB
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ head cpuinfo  ## THE CPU IS INTEL XEON CLOCKING AT 2.20GHz. THERE IS ONE CPU.
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU @ 2.20GHz
+stepping	: 0
+microcode	: 0xffffffff
+cpu MHz		: 2199.998
+cache size	: 56320 KB
+physical id	: 0
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ tain [K[Kl cpuinfo
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi
+bogomips	: 4399.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
 
-# 2) The home directory is /home/evanf. To find it I used echo $HOME.
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ cat cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU @ 2.20GHz
+stepping	: 0
+microcode	: 0xffffffff
+cpu MHz		: 2199.998
+cache size	: 56320 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi
+bogomips	: 4399.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
 
-# 3) My UID is 1001. To find it I used echo $UID.
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU @ 2.20GHz
+stepping	: 0
+microcode	: 0xffffffff
+cpu MHz		: 2199.998
+cache size	: 56320 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 1
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi
+bogomips	: 4399.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
 
-# 4) The folder that contains memory information is /meminfo and the folder for cpu information is /cpuinfo.
-
-# 5) My server contains roughly 1 million kb of memory.
-
-# 6) My server's cpu is an intel xeon clocking around 2.2 ghz.
-
-# 7) My OS version is 20.04.6 LTS and is contained in the file called os-release.
-
+]0;evanf@instance-20250127-192505: /proc[01;32mevanf@instance-20250127-192505[00m:[01;34m/proc[00m$ cd /etc/[K[K[K[K[K[K[K[K/cd[K[K[Kcd /cat[K[K[Ketc/
+]0;evanf@instance-20250127-192505: /etc[01;32mevanf@instance-20250127-192505[00m:[01;34m/etc[00m$ ls
+[0m[01;34mNetworkManager[0m                 fstab               mailcap                  [01;34mrcS.d[0m
+[01;34mPackageKit[0m                     fuse.conf           mailcap.order            [01;36mresolv.conf[0m
+[01;34mX11[0m                            gai.conf            manpath.config           [01;36mrmt[0m
+adduser.conf                   google_instance_id  [01;34mmdadm[0m                    rpc
+[01;34malternatives[0m                   [01;34mgroff[0m               mime.types               rsyslog.conf
+[01;34mapparmor[0m                       group               mke2fs.conf              [01;34mrsyslog.d[0m
+[01;34mapparmor.d[0m                     group-              [01;34mmodprobe.d[0m               screenrc
+[01;34mapport[0m                         [01;34mgrub.d[0m              modules                  [01;34msecurity[0m
+[01;34mapt[0m                            gshadow             [01;34mmodules-load.d[0m           [01;34mselinux[0m
+at.deny                        gshadow-            [01;36mmtab[0m                     services
+bash.bashrc                    [01;34mgss[0m                 [01;34mmultipath[0m                shadow
+bash_completion                hdparm.conf         multipath.conf           shadow-
+[01;34mbash_completion.d[0m              host.conf           nanorc                   shells
+bindresvport.blacklist         hostname            [01;34mnetplan[0m                  [01;34mskel[0m
+[01;34mbinfmt.d[0m                       hosts               [01;34mnetwork[0m                  [01;34msos[0m
+boto.cfg                       hosts.allow         [01;34mnetworkd-dispatcher[0m      [01;34mssh[0m
+[01;34mbyobu[0m                          hosts.deny          networks                 [01;34mssl[0m
+[01;34mca-certificates[0m                [01;34minit.d[0m              [01;34mnewt[0m                     subgid
+ca-certificates.conf           [01;34minitramfs-tools[0m     nsswitch.conf            subgid-
+ca-certificates.conf.dpkg-old  inputrc             [01;34mnvme[0m                     subuid
+[01;34mcalendar[0m                       [01;34miproute2[0m            [01;34mopt[0m                      subuid-
+[01;34mchrony[0m                         [01;34miscsi[0m               [01;36mos-release[0m               sudoers
+[01;34mcloud[0m                          issue               overlayroot.conf         [01;34msudoers.d[0m
+[01;34mconsole-setup[0m                  issue.net           overlayroot.local.conf   sysctl.conf
+[01;34mcron.d[0m                         [01;34mkernel[0m              pam.conf                 [01;34msysctl.d[0m
+[01;34mcron.daily[0m                     kernel-img.conf     [01;34mpam.d[0m                    [01;34msystemd[0m
+[01;34mcron.hourly[0m                    [01;34mlandscape[0m           passwd                   [01;34mterminfo[0m
+[01;34mcron.monthly[0m                   ld.so.cache         passwd-                  timezone
+[01;34mcron.weekly[0m                    ld.so.conf          [01;34mperl[0m                     [01;34mtmpfiles.d[0m
+crontab                        [01;34mld.so.conf.d[0m        [01;34mpm[0m                       [01;34mubuntu-advantage[0m
+[01;34mcryptsetup-initramfs[0m           [01;34mldap[0m                [01;34mpolkit-1[0m                 ucf.conf
+crypttab                       legal               [01;34mpollinate[0m                [01;34mudev[0m
+[01;34mdbus-1[0m                         libaudit.conf       popularity-contest.conf  [01;34mufw[0m
+[01;34mdconf[0m                          locale.alias        [01;34mppp[0m                      [01;34mupdate-manager[0m
+debconf.conf                   locale.gen          profile                  [01;34mupdate-motd.d[0m
+debian_version                 [01;36mlocaltime[0m           [01;34mprofile.d[0m                [01;34mupdate-notifier[0m
+[01;34mdefault[0m                        [01;34mlogcheck[0m            protocols                [01;34mvim[0m
+deluser.conf                   login.defs          [01;34mpython3[0m                  [01;34mvmware-tools[0m
+[01;34mdepmod.d[0m                       logrotate.conf      [01;34mpython3.8[0m                [01;36mvtrgb[0m
+[01;34mdhcp[0m                           [01;34mlogrotate.d[0m         [01;34mrc0.d[0m                    wgetrc
+[01;34mdpkg[0m                           lsb-release         [01;34mrc1.d[0m                    xattr.conf
+e2scrub.conf                   ltrace.conf         [01;34mrc2.d[0m                    [01;34mxdg[0m
+ec2_version                    [01;34mlvm[0m                 [01;34mrc3.d[0m                    zsh_command_not_found
+environment                    machine-id          [01;34mrc4.d[0m
+ethertypes                     magic               [01;34mrc5.d[0m
+[01;34mfonts[0m                          magic.mime          [01;34mrc6.d[0m
+]0;evanf@instance-20250127-192505: /etc[01;32mevanf@instance-20250127-192505[00m:[01;34m/etc[00m$ cat os-release  ## THE OS VERSION IS 20.04.6
+NAME="Ubuntu"
+VERSION="20.04.6 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.6 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
