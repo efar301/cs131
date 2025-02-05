@@ -1,9 +1,9 @@
-
    55  cd cs131
    56  ls
    57  mkdir ws2
    58  ls
    65  cd ws2
+   66  script ws2.txt
    71  echo $HOME
    72  echo $UID
    78  ls
