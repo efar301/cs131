@@ -1,13 +1,13 @@
-Script started on 2025-02-09 03:08:06+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="200" LINES="51"]
-]0;evanf@instance-20250127-192505: ~/cs131/ws3[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws3[00m$ exitscript ws3.txt[8Pcd ws3grep 2019-01-10 ~/2019-01-h1.csv | cut -d ',' -f 8 | sort | uniq -c | sort -r | head -n 
-   8605 161.0  ##<---- TASK 1 ANSWER
-   8407 132.0
-   8163 186.0
-]0;evanf@instance-20250127-192505: ~/cs131/ws3[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws3[00m$ grep 2019-01-02 ~/2019-01-h1.csv | cut -d ',' -f 8 | sort | uniq -c | sort -r | head -n 3
-  13738 237.0  ##<---- TASK 2 ANSWER
-  13519 236.0
-  12997 161.0
+Script started on 2025-02-11 05:03:00+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="160" LINES="40"]
+]0;evanf@instance-20250127-192505: ~/cs131/ws3[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws3[00m$ exitcut -d ',' -f 2,8 ~/2019-01-h1.csv | grep 2019-01-02 | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 3
+   8555 161.0		## TASK 1 ANSWER
+   8145 132.0
+   8122 186.0
+]0;evanf@instance-20250127-192505: ~/cs131/ws3[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws3[00m$ cut -d ',' -f 2,8 ~/2019-01-h1.csv | grep 2019-01-02 | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 3[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcut -d ',' -f 2,8 ~/2019-01-h1.csv | grep 2019-01-02 | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 310[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+  13693 237.0 	## TASK 2 ANSWER
+  13486 236.0
+  12922 161.0
 ]0;evanf@instance-20250127-192505: ~/cs131/ws3[01;32mevanf@instance-20250127-192505[00m:[01;34m~/cs131/ws3[00m$ exit
 exit
 
-Script done on 2025-02-09 03:08:27+00:00 [COMMAND_EXIT_CODE="0"]
+Script done on 2025-02-11 05:03:25+00:00 [COMMAND_EXIT_CODE="0"]

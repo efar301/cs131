@@ -1,5 +1,4 @@
-  272  script ws3.txt
-  279  grep 2019-01-02 ~/2019-01-h1.csv | cut -d ',' -f 8 | sort | uniq -c | sort -r | head -n 3  ## TASK 1 SCRIPT
-  280  grep 2019-01-10 ~/2019-01-h1.csv | cut -d ',' -f 8 | sort | uniq -c | sort -r | head -n 3  ## TASK 2 SCRIPT
-  281  exit
-  282  history > cmds.log
+  554  script ws3.txt
+  555  cut -d ',' -f 2,8 ~/2019-01-h1.csv | grep 2019-01-02 | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 3
+  556  cut -d ',' -f 2,8 ~/2019-01-h1.csv | grep 2019-01-10 | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 3
+  558  history > cmds.log
