@@ -1,7 +1,7 @@
-6.64492 ## mean from 151.0 -> 239.0
-5.115 ## mean from 238.0 -> 151.0
-99.2 ## max fare on jan 10 2019
-  19897 236.0 ## top 10 most popular drop off locations with >=3 passengers
+6.64 # MEAN FROM 151.0 -> 239.0
+5.11 # MEAN FROM 238.0 -> 151.0
+99.2 # MAX FARE ON JAN 10 2019
+  19897 236.0 # MOST POPULAR DROP OFF LOCATIONS WITH >= 3 PASSENGERS
   18013 161.0
   16686 237.0
   16556 230.0

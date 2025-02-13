@@ -1,23 +1,19 @@
-  370  vim .bashrc
-  371  l ## CHECKING ALIAS
-  372  w ## CHECKING ALIAS
-  373  cd ~/cs131/a1
-  374  mkdir FARE ## MAKING FARE DIR
-  375  less ~/2019-01-h1.csv
-  377  cd cs131
-  378  cd a1
-  379  ls
-  380  cd FARE
-  407  awk -F ',' '$8 == 151.0 && $9 == 239.0' ~/2019-01-h1.csv | cut -d ',' -f 11 > 151.0-239.0.txt ## MEAN OF FILE 1 CALCULATION
-  408  vim 151.0-239.0.txt
-  409  less ~/2019-01-h1.csv
-  410  awk -F ',' '$8 == 238.0 && $9 == 151.0' ~/2019-01-h1.csv | cut -d ',' -f 11 > 238.0-151.0.txt ## MEAN OF FILE 2 CALCULATION
-  411  vim 238.0-151.0.txt
-  438  awk '{sum+=$1} END {sum/NR}' FARE/151.0-239.0.txt
-  455  head -n 1 ~/2019-01-h1.csv
-  460  awk '{sum+=$1} END {print sum/NR}' FARE/151.0-239.0.txt > a1.txt ## MEAN OF FILE 1
-  461  awk '{sum+=$1} END {print sum/NR}' FARE/238.0-151.0.txt >> a1.txt ## MEAN OF FILE 2
-  462  grep 2019-01-10 ~/2019-01-h1.csv | cut -d ',' -f 11 | sort | tail -n 1 >> a1.txt ## HIGHEST TOTAL FARE ON JAN 10 2019
-  463  awk -F ',' '$4 >= 3' ~/2019-01-h1.csv | cut -d ',' -f 9 | sort | uniq -c | sort -r | head -n 10 >> a1.txt ## 10 MOST POPULAR DROPOFF LOCATIONS WITH >=3 PASSENGERS 
-  464  vim a1.txt
-  465  history > cmds.log
+  663  grep -E '^([^,]*,){7}[^,]*151.0[^,]*,([^,]*,){0}[^,]*239.0[^,]*' ~/2019-01-h1.csv | cut -d ',' -f 11 > ~/cs131/a1/FARE/151.0-239.0.txt
+  664  cd ~/cs131/a1/FARE
+  666  less 151.0-239.0.txt
+  667  grep -E '^([^,]*,){7}[^,]*238.0[^,]*,([^,]*,){0}[^,]*151.0[^,]*' ~/2019-01-h1.csv | cut -d ',' -f 11 > ~/cs131/a1/FARE/238.0-151.0.txt
+  668  less 238.0-151.0.txt
+  681  bc <<< "scale=2; $(paste -sd+ ~/cs131/a1/FARE/151.0-239.0.txt | bc) / $(wc -l < ~/cs131/a1/FARE/151.0-239.0.txt)" >> ~/cs131/a1/a1_test.txt # MEAN FROM 151.0 -> 239.0
+  682  bc <<< "scale=2; $(paste -sd+ ~/cs131/a1/FARE/238.0-151.0.txt | bc) / $(wc -l < ~/cs131/a1/FARE/238.0-151.0.txt)" >> ~/cs131/a1/a1_test.txt # MEAN FROM 238.0 -> 151.0
+  688  vim a1_test.txt
+  689  less ~/2019-01-h1.csv
+  692  cut -d ',' -f 2,11 ~/2019-01-h1.csv | grep 2019-01-10 | cut -d ',' -f 2 | sort -r | head -n 1 >> a1_test.txt # MAX FARE ON JAN 10 2019
+  693  vim a1_test.txt
+  694  head -n 1 ~/2019-01-h1.csv
+  698  vim a1_test.txt
+  699  cut -d ',' -f 4,9 ~/2019-01-h1.csv | grep "^[3-9]" | cut -d ',' -f 2 | sort | uniq -c | sort -r | head -n 10 >> a1_test.txt # TOP 10 DROPOFF LOCATIONS
+  700  vim a1_test.txt
+  701  cp a1_test.txt > a1.txt
+  702  cp a1_test.txt a1.txt
+  703  vim a1.txt
+  704  history > cmds.log
