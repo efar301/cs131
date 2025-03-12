@@ -36,3 +36,12 @@ ln -s /path/to/auto /usr/local/bin/auto
 * * * * * ftype
 :~$ auto -d ftype
 auto list
+
+# getting help
+:~$ auto help
+Usage:
+auto <command_to_automate> _ _ _ _ _     where _ is a crontab time or empty
+auto -d <command_to_remove> _ _ _ _ _    where _ is a crontab time or empty
+auto -e <command_to_change> _ _ _ _ _    where _ are the new times for the command listed
+auto list                                lists current cronjobs
+auto help                                provides usage info
