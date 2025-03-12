@@ -1,7 +1,6 @@
 #!/bin/bash
 
-curr_cronjobs=$(crontab -l)
-
+# figuring out what task to do based on input
 if [ -f "$(eval echo "$1")" ]; then
 	command_dir="$1"
 	min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
@@ -9,7 +8,7 @@ if [ -f "$(eval echo "$1")" ]; then
 	day=${4:-"*"}
 	month=${5:-"*"}
 	weekday=${6:-"*"}
-	task=0
+	task=0 
 elif [ "$1" == "d" ]; then
 	shift
 	command_dir="$1"
@@ -25,7 +24,7 @@ else
 	task=3
 fi
 
-
+# task == 0 means add to crontab
 if [ "$task" == 0 ]; then
 	{
 		echo "$curr_cronjobs"
@@ -33,19 +32,22 @@ if [ "$task" == 0 ]; then
 	} | crontab - 
 
 	echo "cronjob at $command_dir added"
+
+# task == 1 means delete cronjob
 elif [ "$task" == 1 ]; then
 	crontab -l > cronjobs.txt
 	grep -v "$command_dir" cronjobs.txt | crontab -
 	echo "removed cronjob: $min $hr $day $month $weekday $command_dir"
 
+# task == 2 means provide usage info
 elif [ "$task" == 2 ]; then
 	echo "usage:"
 	echo "<command_to_automate> _ _ _ _ _    where _ is a crontab time or empty"
 	echo "d <command_to_automate> _ _ _ _ _  where _ is a crontab time or empty"
 	echo "info                               provides usage info "
 
+# task == 3 means tell the user to call task 2
 else
 	echo 'please use "auto info" for usage info'
 
 fi
-
