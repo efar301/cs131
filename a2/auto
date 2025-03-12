@@ -2,52 +2,58 @@
 
 # figuring out what task to do based on input
 if [ -f "$(eval echo "$1")" ]; then
-	command_dir="$1"
-	min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
-	hr=${3:-"*"}
-	day=${4:-"*"}
-	month=${5:-"*"}
-	weekday=${6:-"*"}
 	task=0 
-elif [ "$1" == "d" ]; then
+elif [ "$1" == "-d" ]; then
 	shift
-	command_dir="$1"
-	min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
-	hr=${3:-"*"}
-	day=${4:-"*"}
-	month=${5:-"*"}
-	weekday=${6:-"*"}
 	task=1
-elif [ "$1" == "info" ]; then
+elif [ "$1" == "help" ]; then
 	task=2
-else
+elif [ "$1" == "-e" ]; then
+	shift
 	task=3
+elif [ "$1" == "list" ]; then
+	shift
+	task=4
+else
+	task=5
 fi
 
-# task == 0 means add to crontab
+
+command_dir="$1"
+min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
+hr=${3:-"*"}
+day=${4:-"*"}
+month=${5:-"*"}
+weekday=${6:-"*"}
+
+# add specified command to crontab
 if [ "$task" == 0 ]; then
-	{
-		echo "$curr_cronjobs"
-		echo "$min $hr $day $month $weekday" "$command_dir"
-	} | crontab - 
+	(crontab -l 2>/dev/null; echo "$min $hr $day $month $weekday $command_dir") | crontab -
 
-	echo "cronjob at $command_dir added"
-
-# task == 1 means delete cronjob
+# deletes specified cronjob
 elif [ "$task" == 1 ]; then
-	crontab -l > cronjobs.txt
-	grep -v "$command_dir" cronjobs.txt | crontab -
-	echo "removed cronjob: $min $hr $day $month $weekday $command_dir"
+	crontab -l | grep -v "$command_dir" | crontab -
 
-# task == 2 means provide usage info
+# provides usage info
 elif [ "$task" == 2 ]; then
-	echo "usage:"
-	echo "<command_to_automate> _ _ _ _ _    where _ is a crontab time or empty"
-	echo "d <command_to_automate> _ _ _ _ _  where _ is a crontab time or empty"
-	echo "info                               provides usage info "
+    echo "Usage:"
+    printf "%-40s %s\n" "auto <command_to_automate> _ _ _ _ _" "where _ is a crontab time or empty"
+    printf "%-40s %s\n" "auto -d <command_to_remove> _ _ _ _ _" "where _ is a crontab time or empty"
+    printf "%-40s %s\n" "auto -e <command_to_change> _ _ _ _ _" "where _ are the new times for the command listed"
+    printf "%-40s %s\n" "auto list" "lists current cronjobs"
+    printf "%-40s %s\n" "auto help" "provides usage info"
+# change specified crontab run time
+elif [ "$task" == 3 ]; then
+	crontab -l | grep -v "$command_dir" > cronjobs.txt
+	echo "$min $hr $day $month $weekday" "$command_dir" >> cronjobs.txt 
+	crontab cronjobs.txt
 
-# task == 3 means tell the user to call task 2
+# lists current cronjobs
+elif [ "$task" == 4 ]; then
+	crontab -l
+
+#  means tell the user to call task 2
 else
-	echo 'please use "auto info" for usage info'
+	echo 'please use "auto help" for usage info'
 
 fi
