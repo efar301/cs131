@@ -1,0 +1,51 @@
+#!/bin/bash
+
+curr_cronjobs=$(crontab -l)
+
+if [ -f "$(eval echo "$1")" ]; then
+	command_dir="$1"
+	min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
+	hr=${3:-"*"}
+	day=${4:-"*"}
+	month=${5:-"*"}
+	weekday=${6:-"*"}
+	task=0
+elif [ "$1" == "d" ]; then
+	shift
+	command_dir="$1"
+	min=${2:-"*"}  			# min hour dayofmonth monthofyear dayofweek
+	hr=${3:-"*"}
+	day=${4:-"*"}
+	month=${5:-"*"}
+	weekday=${6:-"*"}
+	task=1
+elif [ "$1" == "info" ]; then
+	task=2
+else
+	task=3
+fi
+
+
+if [ "$task" == 0 ]; then
+	{
+		echo "$curr_cronjobs"
+		echo "$min $hr $day $month $weekday" "$command_dir"
+	} | crontab - 
+
+	echo "cronjob at $command_dir added"
+elif [ "$task" == 1 ]; then
+	crontab -l > cronjobs.txt
+	grep -v "$command_dir" cronjobs.txt | crontab -
+	echo "removed cronjob: $min $hr $day $month $weekday $command_dir"
+
+elif [ "$task" == 2 ]; then
+	echo "usage:"
+	echo "<command_to_automate> _ _ _ _ _    where _ is a crontab time or empty"
+	echo "d <command_to_automate> _ _ _ _ _  where _ is a crontab time or empty"
+	echo "info                               provides usage info "
+
+else
+	echo 'please use "auto info" for usage info'
+
+fi
+
