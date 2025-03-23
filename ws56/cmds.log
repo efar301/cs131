@@ -1,0 +1,13 @@
+  907  sed -n '/^2.0,/p' ~/2019-01-h1.csv > vendor2.csv ##  TASK 1 SED
+  908  wc -l vendor2.csv
+  913  sed -e 's/://g' -e 's/"//g' -e 's/-//g' ~/2019-01-h1.csv > no-separators.csv ## TASK 2 SED
+  914  head -n 10 no-separators.csv
+  915  clear
+  934  cat no-separators.csv
+  935  sed 's/\.[0-9]*//g' no-separators.csv > no-fractions.csv ## TASK 3 SED
+  936  cat no-fractions.csv
+ 1470  head -n 1 ~/2019-01-h1.csv
+ 1486  tail -n +2 ~/2019-01-h1.csv | awk -F, ' { if($17 >= 10) counts[$14]++ } END{ for (tip in counts) print tip, counts[tip] >> "ws56.txt" } ' ## AWK TASK 1
+ 1487  less ws56.txt
+ 1488  tail -n +2 ~/2019-01-h1.csv | awk -F, ' { counts[$14]++ } END{ for (tip in counts) print tip, counts[tip]  } ' | sort -k2 -nr | head -n 20 >> ws56.txt ## AWK TASK 2
+ 1490  less ws56.txt
