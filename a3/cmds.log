@@ -1,0 +1,7 @@
+ 1551  cd cs131/a3
+ 1552  ls
+ 1553  awk -f grader.awk grades.csv ## RUNNING LINE TO MAKE SURE IT WORKS
+ 1554  git add .
+ 1555  awk -f grader.awk grades.csv > a3.txt ## CREATING A3.TXT
+ 1556  less a3.txt
+ 1557  history > cmds.log

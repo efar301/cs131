@@ -1,0 +1,8 @@
+David has Failed. Their average grade was 65 and their total grade was 195.
+Eve has Passed. Their average grade was 88.3333 and their total grade was 265.
+Bob has Passed. Their average grade was 82 and their total grade was 246.
+Charlie has Passed. Their average grade was 90 and their total grade was 270.
+Alice has Passed. Their average grade was 84.3333 and their total grade was 253.
+
+Charlie has the highest average grade with 90
+David has the lowest average grade with 65
